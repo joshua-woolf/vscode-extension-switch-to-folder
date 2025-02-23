@@ -22,7 +22,7 @@ async function main() {
         testWorkspace,
         '--disable-extensions', // Disable other extensions
         '--disable-workspace-trust', // Disable workspace trust dialog
-        '--enable-proposed-api=joshua-woolf.open-folder-from-context-menu', // Enable proposed API access for our extension
+        '--enable-proposed-api=joshua-woolf.switch-to-folder', // Enable proposed API access for our extension
       ],
     })
   }

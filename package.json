@@ -1,12 +1,12 @@
 {
-  "name": "open-folder-from-context-menu",
+  "name": "switch-to-folder",
   "displayName": "Open Folder from Context Menu",
   "description": "Provides a context menu option on folders to quickly open the folder.",
   "version": "0.0.1",
   "publisher": "joshua-woolf",
   "repository": {
     "type": "git",
-    "url": "https://github.com/joshua-woolf/open-folder-from-context-menu"
+    "url": "https://github.com/joshua-woolf/switch-to-folder"
   },
   "engines": {
     "vscode": "^1.75.0"
@@ -20,8 +20,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "open-folder-from-context-menu.openFolder",
-        "title": "Open Folder",
+        "command": "switch-to-folder.openFolder",
+        "title": "Switch to Folder",
         "enablement": "explorerViewletFocus"
       }
     ],
@@ -29,7 +29,7 @@
       "explorer/context": [
         {
           "when": "explorerResourceIsFolder",
-          "command": "open-folder-from-context-menu.openFolder",
+          "command": "switch-to-folder.openFolder",
           "group": "navigation"
         }
       ]

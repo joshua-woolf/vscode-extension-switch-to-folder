@@ -8,7 +8,7 @@ interface ExtensionExports {
   deactivate: () => void
 }
 
-const EXTENSION_ID = 'joshua-woolf.open-folder-from-context-menu'
+const EXTENSION_ID = 'joshua-woolf.switch-to-folder'
 
 suite('Extension Test Suite', () => {
   let extension: vscode.Extension<ExtensionExports> | undefined
@@ -35,7 +35,7 @@ suite('Extension Test Suite', () => {
   test('Should register openFolder command', async () => {
     const commands = await vscode.commands.getCommands()
     assert.ok(
-      commands.includes('open-folder-from-context-menu.openFolder'),
+      commands.includes('switch-to-folder.openFolder'),
       'Command should be registered',
     )
   })
@@ -46,7 +46,7 @@ suite('Extension Test Suite', () => {
 
     assert.ok(
       packageJSON.contributes.menus['explorer/context'].some(
-        (item: { command: string }) => item.command === 'open-folder-from-context-menu.openFolder',
+        (item: { command: string }) => item.command === 'switch-to-folder.openFolder',
       ),
       'Command should be in explorer context menu',
     )
@@ -62,7 +62,7 @@ suite('Extension Test Suite', () => {
     }
 
     try {
-      await vscode.commands.executeCommand('open-folder-from-context-menu.openFolder')
+      await vscode.commands.executeCommand('switch-to-folder.openFolder')
       assert.strictEqual(errorMessage, 'No folder selected.', 'Should show correct error message')
     }
     finally {
@@ -90,7 +90,7 @@ suite('Extension Test Suite', () => {
 
     try {
       const testUri = vscode.Uri.file('/test/path')
-      await vscode.commands.executeCommand('open-folder-from-context-menu.openFolder', testUri)
+      await vscode.commands.executeCommand('switch-to-folder.openFolder', testUri)
 
       assert.strictEqual(commandCalled, true, 'vscode.openFolder command should be called')
       assert.strictEqual(commandUri?.fsPath, testUri.fsPath, 'Command should be called with correct URI')

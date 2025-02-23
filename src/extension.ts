@@ -1,7 +1,7 @@
 import * as vscode from 'vscode'
 
 export function activate(context: vscode.ExtensionContext) {
-  const disposable = vscode.commands.registerCommand('open-folder-from-context-menu.openFolder', async (uri: vscode.Uri) => {
+  const disposable = vscode.commands.registerCommand('switch-to-folder.openFolder', async (uri: vscode.Uri) => {
     if (!uri) {
       vscode.window.showErrorMessage('No folder selected.')
       return
