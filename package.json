@@ -3,6 +3,7 @@
   "displayName": "Switch Workspace to Directory",
   "description": "Provides a context menu option on directories to quickly switch the workspace to the directory.",
   "version": "0.0.1",
+  "publisher": "joshua-woolf",
   "repository": {
     "type": "git",
     "url": "https://github.com/joshua-woolf/vscode-switch-workspace-to-directory"
@@ -46,10 +47,15 @@
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@stylistic/eslint-plugin": "^4.0.1",
+    "@types/chai": "^5.0.1",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^22.13.5",
     "@types/vscode": "^1.75.0",
+    "@vscode/test-electron": "^2.4.1",
+    "chai": "^5.2.0",
     "eslint": "^9.21.0",
     "eslint-plugin-import": "^2.31.0",
+    "mocha": "^11.1.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.24.1"
   }
