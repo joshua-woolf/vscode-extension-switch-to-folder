@@ -1,0 +1,56 @@
+{
+  "name": "vscode-switch-workspace-to-directory",
+  "displayName": "Switch Workspace to Directory",
+  "description": "Provides a context menu option on directories to quickly switch the workspace to the directory.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshua-woolf/vscode-switch-workspace-to-directory"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:switch-workspace-to-directory.switchWorkspace"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "switch-workspace-to-directory.switchWorkspace",
+        "title": "Open Folder"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "switch-workspace-to-directory.switchWorkspace",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@stylistic/eslint-plugin": "^4.0.1",
+    "@types/node": "^22.13.5",
+    "@types/vscode": "^1.75.0",
+    "eslint": "^9.21.0",
+    "eslint-plugin-import": "^2.31.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1"
+  }
+}
