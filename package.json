@@ -1,6 +1,6 @@
 {
   "name": "open-folder-from-context-menu",
-  "displayName": "Open Folder",
+  "displayName": "Open Folder from Context Menu",
   "description": "Provides a context menu option on folders to quickly open the folder.",
   "version": "0.0.1",
   "publisher": "joshua-woolf",
