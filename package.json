@@ -21,7 +21,8 @@
     "commands": [
       {
         "command": "open-folder-from-context-menu.openFolder",
-        "title": "Open Folder"
+        "title": "Open Folder",
+        "enablement": "explorerViewletFocus"
       }
     ],
     "menus": {
