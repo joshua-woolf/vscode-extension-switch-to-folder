@@ -1,9 +1,9 @@
 import * as vscode from 'vscode'
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('Extension "switch-workspace-to-directory" is now active')
+  console.log('Extension "vscode-open-folder-extension" is now active')
 
-  const disposable = vscode.commands.registerCommand('switch-workspace-to-directory.switchWorkspace', async (uri: vscode.Uri) => {
+  const disposable = vscode.commands.registerCommand('vscode-open-folder-extension.openFolder', async (uri: vscode.Uri) => {
     console.log('Command triggered with URI:', uri?.fsPath)
 
     if (!uri) {

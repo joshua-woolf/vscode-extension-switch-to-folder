@@ -1,12 +1,12 @@
 {
-  "name": "vscode-switch-workspace-to-directory",
-  "displayName": "Switch Workspace to Directory",
-  "description": "Provides a context menu option on directories to quickly switch the workspace to the directory.",
+  "name": "vscode-open-folder-extension",
+  "displayName": "Open Folder",
+  "description": "Provides a context menu option on folders to quickly open the folder.",
   "version": "0.0.1",
   "publisher": "joshua-woolf",
   "repository": {
     "type": "git",
-    "url": "https://github.com/joshua-woolf/vscode-switch-workspace-to-directory"
+    "url": "https://github.com/joshua-woolf/vscode-open-folder-extension"
   },
   "engines": {
     "vscode": "^1.75.0"
@@ -15,13 +15,12 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:switch-workspace-to-directory.switchWorkspace"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "switch-workspace-to-directory.switchWorkspace",
+        "command": "vscode-open-folder-extension.openFolder",
         "title": "Open Folder"
       }
     ],
@@ -29,7 +28,7 @@
       "explorer/context": [
         {
           "when": "explorerResourceIsFolder",
-          "command": "switch-workspace-to-directory.switchWorkspace",
+          "command": "vscode-open-folder-extension.openFolder",
           "group": "navigation"
         }
       ]

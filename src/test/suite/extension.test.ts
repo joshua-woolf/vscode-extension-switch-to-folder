@@ -8,7 +8,7 @@ interface ExtensionExports {
   deactivate: () => void
 }
 
-const EXTENSION_ID = 'joshua-woolf.vscode-switch-workspace-to-directory'
+const EXTENSION_ID = 'joshua-woolf.vscode-open-folder-extension'
 
 suite('Extension Test Suite', () => {
   let extension: vscode.Extension<ExtensionExports> | undefined
@@ -32,10 +32,10 @@ suite('Extension Test Suite', () => {
     assert.ok(extension, 'Extension should be present')
   })
 
-  test('Should register switchWorkspace command', async () => {
+  test('Should register openFolder command', async () => {
     const commands = await vscode.commands.getCommands()
     assert.ok(
-      commands.includes('switch-workspace-to-directory.switchWorkspace'),
+      commands.includes('vscode-open-folder-extension.openFolder'),
       'Command should be registered',
     )
   })
@@ -46,7 +46,7 @@ suite('Extension Test Suite', () => {
 
     assert.ok(
       packageJSON.contributes.menus['explorer/context'].some(
-        (item: { command: string }) => item.command === 'switch-workspace-to-directory.switchWorkspace',
+        (item: { command: string }) => item.command === 'vscode-open-folder-extension.openFolder',
       ),
       'Command should be in explorer context menu',
     )
