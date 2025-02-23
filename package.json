@@ -1,12 +1,12 @@
 {
-  "name": "vscode-open-folder-extension",
+  "name": "open-folder-from-context-menu",
   "displayName": "Open Folder",
   "description": "Provides a context menu option on folders to quickly open the folder.",
   "version": "0.0.1",
   "publisher": "joshua-woolf",
   "repository": {
     "type": "git",
-    "url": "https://github.com/joshua-woolf/vscode-open-folder-extension"
+    "url": "https://github.com/joshua-woolf/open-folder-from-context-menu"
   },
   "engines": {
     "vscode": "^1.75.0"
@@ -20,7 +20,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "vscode-open-folder-extension.openFolder",
+        "command": "open-folder-from-context-menu.openFolder",
         "title": "Open Folder"
       }
     ],
@@ -28,7 +28,7 @@
       "explorer/context": [
         {
           "when": "explorerResourceIsFolder",
-          "command": "vscode-open-folder-extension.openFolder",
+          "command": "open-folder-from-context-menu.openFolder",
           "group": "navigation"
         }
       ]

@@ -8,7 +8,7 @@ interface ExtensionExports {
   deactivate: () => void
 }
 
-const EXTENSION_ID = 'joshua-woolf.vscode-open-folder-extension'
+const EXTENSION_ID = 'joshua-woolf.open-folder-from-context-menu'
 
 suite('Extension Test Suite', () => {
   let extension: vscode.Extension<ExtensionExports> | undefined
@@ -35,7 +35,7 @@ suite('Extension Test Suite', () => {
   test('Should register openFolder command', async () => {
     const commands = await vscode.commands.getCommands()
     assert.ok(
-      commands.includes('vscode-open-folder-extension.openFolder'),
+      commands.includes('open-folder-from-context-menu.openFolder'),
       'Command should be registered',
     )
   })
@@ -46,7 +46,7 @@ suite('Extension Test Suite', () => {
 
     assert.ok(
       packageJSON.contributes.menus['explorer/context'].some(
-        (item: { command: string }) => item.command === 'vscode-open-folder-extension.openFolder',
+        (item: { command: string }) => item.command === 'open-folder-from-context-menu.openFolder',
       ),
       'Command should be in explorer context menu',
     )
