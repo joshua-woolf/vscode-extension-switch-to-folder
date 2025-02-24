@@ -1,7 +1,7 @@
 {
   "name": "switch-to-folder",
-  "displayName": "Open Folder from Context Menu",
-  "description": "Provides a context menu option on folders to quickly open the folder.",
+  "displayName": "Switch to Folder",
+  "description": "Provides a context menu option on folders to quickly switch to the folder.",
   "version": "0.0.1",
   "publisher": "joshua-woolf",
   "repository": {
