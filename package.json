@@ -6,7 +6,7 @@
   "publisher": "joshua-woolf",
   "repository": {
     "type": "git",
-    "url": "https://github.com/joshua-woolf/switch-to-folder"
+    "url": "https://github.com/joshua-woolf/vscode-extension-switch-to-folder"
   },
   "engines": {
     "vscode": "^1.75.0"
@@ -14,8 +14,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-  ],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -36,27 +35,31 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "test": "node ./out/test/runTest.js"
+    "test": "vscode-test"
   },
   "devDependencies": {
-    "@eslint/js": "^9.21.0",
-    "@stylistic/eslint-plugin": "^4.0.1",
-    "@types/chai": "^5.0.1",
-    "@types/mocha": "^10.0.10",
-    "@types/node": "^22.13.5",
     "@types/vscode": "^1.75.0",
-    "@vscode/test-electron": "^2.4.1",
-    "chai": "^5.2.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
     "eslint": "^9.21.0",
-    "eslint-plugin-import": "^2.31.0",
-    "mocha": "^11.1.0",
+    "esbuild": "^0.25.0",
+    "npm-run-all": "^4.1.5",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.24.1"
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
   }
 }
